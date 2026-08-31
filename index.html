@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instagram Chat Reader</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">◎</span>
+          <span>Messages</span>
+        </div>
+        <label class="file-button" for="json-file">Open chat JSON<input id="json-file" type="file" accept="application/json,.json" /></label>
+        <div id="search-wrap" class="search-wrap" hidden>
+          <span class="search-icon">⌕</span>
+          <input id="search" type="search" placeholder="Search messages" autocomplete="off" />
+          <span id="match-count" class="match-count"></span>
+          <button id="previous-match" class="nav-button" type="button" aria-label="Previous match" title="Previous match">‹</button>
+          <button id="next-match" class="nav-button" type="button" aria-label="Next match" title="Next match">›</button>
+        </div>
+      </header>
+
+      <section id="empty-state" class="empty-state">
+        <div class="empty-icon">✉</div>
+        <h1>Read an Instagram conversation</h1>
+        <p>Choose a <code>message_1.json</code> export file to view it privately in this browser.</p>
+        <label class="primary-button" for="json-file">Choose JSON file</label>
+        <p class="hint">Nothing is uploaded or sent anywhere.</p>
+      </section>
+
+      <section id="chat" class="chat" hidden>
+        <div id="chat-info" class="chat-info"></div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="alert"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
